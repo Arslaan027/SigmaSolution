@@ -1,12 +1,7 @@
 import React from "react";
-import Drawer from "./Components/Drawer.jsx";
 
 const App = () => {
-  return (
-    <div>
-      <Drawer />
-    </div>
-  );
+  return <div>{/* Create the Outlet First */}</div>;
 };
 
 export default App;
