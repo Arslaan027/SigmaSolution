@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add these to your global CSS file or Tailwind's custom classes */
+html.dark {
+  background-color: #1a202c; /* Dark background for dark mode */
+  color: #e2e8f0; /* Light text color for dark mode */
+}
+
+.bg-gray-800 {
+  background-color: #2d3748; /* Darker gray for navbar in dark mode */
+}
+
+.text-gray-300 {
+  color: #e2e8f0; /* Light text color in dark mode */
+}
+
+.bg-gray-900 {
+  background-color: #1a202c; /* Darker gray for sidebar in dark mode */
+}
+
+.text-gray-100 {
+  color: #f7fafc; /* Light color for hover effect in dark mode */
+}
+
+.bg-gray-200 {
+  background-color: #edf2f7; /* Light gray background for light mode */
+}
+
+.text-gray-800 {
+  color: #2d3748; /* Dark text color for light mode */
+}
