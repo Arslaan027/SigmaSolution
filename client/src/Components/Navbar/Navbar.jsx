@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/Image/DummyLogo.png";
-import { IoSearchSharp } from "react-icons/io5";
-import { GoHome } from "react-icons/go";
+import { IoSearchSharp, IoHomeOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineSupportAgent } from "react-icons/md";
 import Hamburger from "hamburger-react";
@@ -22,6 +21,13 @@ const Navbar = () => {
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
+    if (isSidebarOpen) {
+      setIsSidebarOpen(false); // Close sidebar on link click
+    }
+  };
+
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   // const handleThemeToggle = () => {
@@ -46,7 +52,7 @@ const Navbar = () => {
         <div className="lg:hidden flex items-center">
           <Hamburger
             toggled={isSidebarOpen}
-            toggle={setIsSidebarOpen}
+            toggle={handleSidebarToggle}
             size={24}
             color="#000"
           />
@@ -66,6 +72,45 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="space-x-4 text-sm hidden lg:flex items-center">
+          <Link
+            to="/home"
+            onClick={() => handleLinkClick("Home")}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-md ${
+              activeLink === "Home"
+                ? "bg-black text-white"
+                : "hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+            }`}
+          >
+            <IoHomeOutline className="text-xl" />
+            <span>Home</span>
+          </Link>
+          {/* 
+          <Link
+            to="/profile"
+            onClick={() => handleLinkClick("Profile")}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-md ${
+              activeLink === "Profile"
+                ? "bg-black text-white"
+                : "hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+            }`}
+          >
+            <CgProfile className="text-xl" />
+            <span>Profile</span>
+          </Link> */}
+
+          <Link
+            to="/support"
+            onClick={() => handleLinkClick("Support")}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-md ${
+              activeLink === "Support"
+                ? "bg-black text-white"
+                : "hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+            }`}
+          >
+            <MdOutlineSupportAgent className="text-xl" />
+            <span>Support</span>
+          </Link>
+
           {/* ===> LIGHT/DARK */}
           {/* <button
             onClick={handleThemeToggle}
@@ -85,20 +130,18 @@ const Navbar = () => {
         <nav className="hidden lg:flex justify-between items-center space-x-6 py-2 px-4">
           <div className="flex space-x-6 overflow-x-auto">
             {[
-              "WHAT'S NEW",
-              "DESIGNERS",
-              "CLOTHING",
-              "SHOES",
-              "BAGS",
-              "ACCESSORIES",
-              "JEWELRY",
-              "LINGERIE",
-              "BEAUTY",
-              "MAGAZINE",
+              "Home",
+              "Startup Registrations",
+              "Trademark",
+              "Goods & Services Tax",
+              "Income Tax",
+              "Compliance",
+              "Bookkeeping",
+              "Consultation",
             ].map((link) => (
               <Link
                 key={link}
-                href="#"
+                to="#"
                 onClick={() => handleLinkClick(link)}
                 className={`${
                   activeLink === link
@@ -132,14 +175,6 @@ const Navbar = () => {
         } transition-transform duration-300 ease-in-out lg:hidden shadow-md dark:shadow-gray-900`}
       >
         <nav className="flex flex-col space-y-4">
-          {/* Logo and Company Name for Mobile */}
-          {/* <div className="flex items-center space-x-2">
-            <img src={logo} alt="SS Logo" className="h-10 w-auto" />
-            <h1 className="text-xl font-bold dark:text-gray-400">
-              Sigma-Solution
-            </h1>
-          </div> */}
-
           {/* Search Bar */}
           <div className="relative mt-4">
             <input
@@ -152,20 +187,18 @@ const Navbar = () => {
             </button>
           </div>
           {[
-            "WHAT'S NEW",
-            "DESIGNERS",
-            "CLOTHING",
-            "SHOES",
-            "BAGS",
-            "ACCESSORIES",
-            "JEWELRY",
-            "LINGERIE",
-            "BEAUTY",
-            "MAGAZINE",
+            "Home",
+            "Startup Registrations",
+            "Trademark",
+            "Goods & Services Tax",
+            "Income Tax",
+            "Compliance",
+            "Bookkeeping",
+            "Consultation",
           ].map((link) => (
             <Link
               key={link}
-              href="#"
+              to="#"
               onClick={() => handleLinkClick(link)}
               className={`${
                 activeLink === link
@@ -182,7 +215,7 @@ const Navbar = () => {
       {/* Bottom Bar for Mobile */}
       <div className="fixed bottom-0 left-0 right-0 bg-gray-100 text-black dark:bg-dark-bg dark:text-gray-100 py-2 flex justify-around items-center lg:hidden z-40 shadow-2xl dark:shadow-gray-900">
         <Link
-          href="#"
+          to="/profile"
           className={`${
             activeLink === "Profile"
               ? "bg-gray-300 text-black dark:bg-gray-500 dark:text-gray-100 rounded-full scale-105"
@@ -194,7 +227,7 @@ const Navbar = () => {
           <span className="text-xs">Profile</span>
         </Link>
         <Link
-          href="#"
+          to="/home"
           className={`${
             activeLink === "Home"
               ? "bg-gray-300 text-black dark:bg-gray-500 dark:text-gray-100 rounded-full scale-105"
@@ -202,12 +235,11 @@ const Navbar = () => {
           } flex flex-col items-center p-4 transition-transform duration-300 ease-in-out`}
           onClick={() => handleLinkClick("Home")}
         >
-          <GoHome className="text-2xl" />
+          <IoHomeOutline className="text-2xl" />
           <span className="text-xs">Home</span>
         </Link>
-
         <Link
-          href="#"
+          to="/support"
           className={`${
             activeLink === "Support"
               ? "bg-gray-300 text-black dark:bg-gray-500 dark:text-gray-100 rounded-full scale-105"
