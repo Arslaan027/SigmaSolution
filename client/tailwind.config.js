@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class", // or 'media' for automatic dark mode based on user's system preferences
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        "dark-bg": "#1a202c",
-        "dark-text": "#e2e8f0",
-        "light-bg": "#f7fafc",
-        "light-text": "#2d3748",
+        "light-bg": "#f5f5f5",
+        "dark-bg": "#1a1a1a",
+        "light-text": "#333",
+        "dark-text": "#f5f5f5",
       },
     },
   },
