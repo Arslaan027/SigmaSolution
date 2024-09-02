@@ -1,0 +1,59 @@
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.scrollable-list {
+  position: relative;
+  height: 350px; /* Adjust this height as needed */
+  overflow: hidden;
+}
+
+.scrollable-list ul {
+  display: flex;
+  flex-direction: column;
+  height: 700px; /* Adjust based on the total height of your list items */
+  animation: scroll-up 15s linear infinite; /* Adjust the duration based on the content height */
+}
+
+.scrollable-list li {
+  padding: 16px;
+  border-bottom: 1px solid #ddd; /* Optional for visual separation */
+}
+
+.scrollable-list li:hover {
+  background-color: #f9fafb; /* Light gray background on hover */
+}
+
+.bg-gray-100 {
+  background-color: #f9fafb; /* Light gray background */
+}
+
+.bg-red-400 {
+  background-color: #f87171; /* Red color */
+}
+
+.text-red-400 {
+  color: #f87171; /* Red color for text */
+}
+
+.text-gray-800 {
+  color: #1f2937; /* Dark gray text color */
+}
+
+.text-gray-600 {
+  color: #4b5563; /* Medium gray text color */
+}
+
+.button-red {
+  background-color: #f87171; /* Red button background */
+  border: none;
+}
+
+.button-red:hover {
+  background-color: #f44336; /* Darker red for hover effect */
+}
