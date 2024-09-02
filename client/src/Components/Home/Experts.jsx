@@ -6,10 +6,15 @@ const Experts = () => {
       {/* Left Section - Text Content */}
       <div className="flex-1 md:mr-6 order-1 md:order-1 mx-auto">
         <h2 className="text-2xl font-bold mb-4">
-          Private Limited Company Registration-Online
+          <span className="text-red-500">Private Limited Company</span>{" "}
+          Registration-Online
         </h2>
         <p className="text-lg mb-2">
-          Pvt Ltd Company Registration Starts from ₹8,499 Only!
+          Pvt Ltd Company Registration Starts from{" "}
+          <span className="text-red-500">
+            <b>₹8,499/-</b>
+          </span>{" "}
+          Only!
         </p>
         <ul className="list-disc ml-4 mb-4">
           <li>No Hidden Charges</li>
@@ -26,9 +31,10 @@ const Experts = () => {
       {/* Right Section - Form */}
       <div className="flex-1 mt-6 md:mt-0 md:ml-6 order-2 md:order-2">
         <div className="bg-white text-black p-4 rounded-lg shadow-md mx-auto w-3/4">
-          <h3 className="text-xl font-semibold mb-2">
-            Get Expert Consultation
+          <h3 className="text-2xl font-bold text-gray-800 mb-4  pb-2">
+            Get <span className="text-red-500">Expert</span> Consultation
           </h3>
+
           <form className="flex flex-col">
             <input
               type="text"
@@ -50,7 +56,7 @@ const Experts = () => {
                 type="submit"
                 className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors"
               >
-                REQUEST A CALLBACK
+                Reach Out
               </button>
             </div>
           </form>

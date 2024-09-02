@@ -10,6 +10,7 @@ import ComparisonSection from "./Components/Home/ComparisonSection";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Experts from "./Components/Home/Experts";
+import Partners from "./Components/Home/Partners";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Trust />
       <ComparisonSection />
       <Experts />
+      <Partners />
       <Footer />
     </div>
   );
