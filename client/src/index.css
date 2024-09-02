@@ -31,3 +31,12 @@ html.dark {
 .text-gray-800 {
   color: #2d3748; /* Dark text color for light mode */
 }
+
+/* styles.css */
+.navbar-transition {
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+  top: -60px; /* Adjust based on your navbar height */
+}
