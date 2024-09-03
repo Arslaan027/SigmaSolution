@@ -11,6 +11,8 @@ const BottomNavBar = () => {
     setActiveLink(link);
   };
 
+  //===> TEST
+
   return (
     <div className="fixed bottom-5 w-[90vw] rounded-full mx-auto left-0 right-0 bg-gray-100 text-black dark:bg-dark-bg dark:text-gray-100 py-2 flex justify-around items-center lg:hidden h-20 z-40 shadow-2xl dark:shadow-gray-900">
       <Link
