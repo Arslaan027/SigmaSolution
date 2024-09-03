@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Experts from "./Components/Home/Experts";
 import Partners from "./Components/Home/Partners";
+import BestBusiness from "./Components/Home/BestBusiness";
 
 const App = () => {
   return (
@@ -18,8 +19,11 @@ const App = () => {
       <Navbar />
       <HeroSection />
       <WhyLegalWiz />
-      <Trust />
+      <div className="hidden md:block">
+        <Trust />
+      </div>
       <ComparisonSection />
+      <BestBusiness />
       <Experts />
       <Partners />
       <Footer />

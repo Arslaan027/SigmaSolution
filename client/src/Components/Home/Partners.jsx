@@ -1,59 +1,60 @@
-import React from "react";
-import arslaan from "../../assets/Image/arslaan.jpg";
-// Replace these with your actual icons later
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "./partner.css";
 
-const Partners = () => {
-  const images = [
-    arslaan,
-    arslaan,
-    arslaan,
-    arslaan,
-    arslaan,
-    arslaan,
-    arslaan,
-    arslaan,
-    arslaan,
-    arslaan,
-  ];
+const brandLogos = [
+  { src: "/brand-logos/google.png", alt: "Google logo" },
+  { src: "/brand-logos/dabur.png", alt: "Dabur logo" },
+  { src: "/brand-logos/emaar.png", alt: "Emaar logo" },
+  { src: "/brand-logos/hero.png", alt: "Hero logo" },
+  { src: "/brand-logos/honda.png", alt: "Honda logo" },
+  { src: "/brand-logos/panasonic.png", alt: "Panasonic logo" },
+  { src: "/brand-logos/pepsico.png", alt: "PepsiCo logo" },
+  { src: "/brand-logos/saint-goblin.png", alt: "Saint Goblin logo" },
+  { src: "/brand-logos/the-leela.png", alt: "The Leela logo" },
+  { src: "/brand-logos/ultratech.png", alt: "UltraTech logo" },
+  { src: "/brand-logos/vedanta.png", alt: "Vedanta logo" },
+  { src: "/brand-logos/nirma.png", alt: "Nirma logo" },
+];
+
+const BrandLogo = ({ src, alt }) => (
+  <div className="flex-shrink-0 w-32 mx-4">
+    <img src={src} alt={alt} className="w-full h-auto object-contain" />
+  </div>
+);
+
+const BrandInfo = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, offset: 10 });
+  }, []);
 
   return (
-    <div className="py-8">
-      <h2 className="text-2xl font-semibold mb-4 text-center">
-        Our Trusted Partners
-      </h2>
-      <div className="overflow-hidden">
-        <div
-          className="flex animate-scroll"
-          style={{
-            animation: "scroll 20s linear infinite",
-            display: "flex",
-            width: `${images.length * 10}%`,
-          }}
-        >
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Partner ${index + 1}`}
-              className="w-16 h-16 p-2 object-contain"
-            />
-          ))}
+    <section className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 py-12 text-center mb-10">
+      {/* Heading and Paragraph */}
+      <div>
+        <h2 className="text-xl font-semibold text-gray-800">
+          Our proudly collaborate <span className="">Partners</span>.
+        </h2>
+        <h3 className="text-3xl font-bold text-gray-800 mb-4">
+          Discover the <span className="text-red-500">partners</span>{" "}
+          contributing with Sigma
+          <span className="text-red-500">Solutions</span>.
+        </h3>
+      </div>
+
+      {/* Brand Logos Slider */}
+      <div className="relative mt-10">
+        <div className="marquee-wrapper">
+          <div className="animate-marquee">
+            {brandLogos.concat(brandLogos).map((logo, index) => (
+              <BrandLogo key={index} src={logo.src} alt={logo.alt} />
+            ))}
+          </div>
         </div>
       </div>
-      <style>
-        {`
-          @keyframes scroll {
-            from {
-              transform: translateX(0);
-            }
-            to {
-              transform: translateX(-100%);
-            }
-          }
-        `}
-      </style>
-    </div>
+    </section>
   );
 };
 
-export default Partners;
+export default BrandInfo;
