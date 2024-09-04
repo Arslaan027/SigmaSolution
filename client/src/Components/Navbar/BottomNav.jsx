@@ -16,7 +16,7 @@ const BottomNavbar = ({
         isFixed ? "fixed top-6 left-0 right-0" : "relative"
       } bg-black text-white dark:bg-gray-700 dark:text-gray-400 shadow-md dark:shadow-gray-900 lg:block transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "translate-y-full"
-      }`}
+      } hidden lg:flex`}
       style={{ width: "100%", zIndex: 20 }}
     >
       <nav className="flex justify-between items-center space-x-4 px-2 py-1">
