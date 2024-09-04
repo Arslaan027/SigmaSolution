@@ -30,8 +30,8 @@ const Experts = () => {
 
       {/* Right Section - Form */}
       <div className="flex-1 mt-6 md:mt-0 md:ml-6 order-2 md:order-2">
-        <div className="bg-white text-black p-4 rounded-lg shadow-md mx-auto w-3/4">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4  pb-2">
+        <div className="bg-white text-black p-4 rounded-lg shadow-md mx-auto w-full md:w-3/4">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4 pb-2">
             Get <span className="text-red-500">Expert</span> Consultation
           </h3>
 

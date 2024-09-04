@@ -11,55 +11,51 @@ const BottomNavbar = ({
 }) => {
   return (
     <div
-      className={`${isFixed} bg-black text-white dark:bg-gray-700 dark:text-gray-400 shadow-md dark:shadow-gray-900`}
+      className={`${
+        isFixed ? "fixed" : ""
+      } bg-black px-1 py-2 text-white dark:bg-gray-700 dark:text-gray-400 shadow-md dark:shadow-gray-900 lg:block hidden`}
     >
-      <nav className="hidden lg:flex justify-between items-center space-x-6 py-2 px-4">
-        <div className="flex space-x-6 overflow-x-auto">
+      <nav className="hidden lg:flex justify-between items-center space-x-4 px-2">
+        <div className="flex space-x-2 overflow-x-auto">
           {[
-            "Home",
-            "Startup Registrations",
-            "Trademark",
-            "Goods & Services Tax",
-            "Income Tax",
-            "Compliance",
-            "Bookkeeping",
-            "Consultation",
+            { name: "Biz Registrations", path: "/biz" },
+            "Accounting",
+            "Interior Design",
+            "Furniture",
+            "Decor Items",
+            "Horeca Services",
+            "Packaging & Printing",
+            "Digital Marketing",
+            "Prod Setup",
+            "Storage & Handling",
+            "IT & Security",
+            "Biz Deals",
+            "Architecture",
           ].map((link, index) => (
-            <div key={link} className="relative">
-              <button
-                onClick={() => handleDropdownToggle(index)}
-                className={`${
-                  activeLink === link
-                    ? "bg-black text-white"
-                    : "hover:bg-white hover:text-black dark:hover:bg-gray-700 dark:hover:text-gray-100"
-                } px-4 py-2 rounded h-full flex items-center transition duration-300 ease-in-out`}
-              >
-                {link}
-              </button>
-              {dropdownOpen === index && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 text-black dark:text-gray-200 shadow-lg rounded-md">
-                  <Link
-                    to="#"
-                    onClick={() => handleLinkClick(`${link} Option 1`)}
-                    className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Option 1
-                  </Link>
-                  <Link
-                    to="#"
-                    onClick={() => handleLinkClick(`${link} Option 2`)}
-                    className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Option 2
-                  </Link>
-                  <Link
-                    to="#"
-                    onClick={() => handleLinkClick(`${link} Option 3`)}
-                    className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Option 3
-                  </Link>
-                </div>
+            <div key={link.name || link} className="relative">
+              {link.path ? (
+                <Link
+                  to={link.path}
+                  onClick={() => handleLinkClick(link.name)}
+                  className={`${
+                    activeLink === link.name
+                      ? "bg-black text-white"
+                      : "hover:bg-white hover:text-black dark:hover:bg-gray-700 dark:hover:text-gray-100"
+                  } px-2 py-1 text-sm rounded h-full flex items-center transition duration-300 ease-in-out`}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <button
+                  onClick={() => handleDropdownToggle(index)}
+                  className={`${
+                    activeLink === link
+                      ? "bg-black text-white"
+                      : "hover:bg-white hover:text-black dark:hover:bg-gray-700 dark:hover:text-gray-100"
+                  } px-2 py-1 text-sm rounded h-full flex items-center transition duration-300 ease-in-out`}
+                >
+                  {link}
+                </button>
               )}
             </div>
           ))}

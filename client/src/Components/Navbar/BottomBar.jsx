@@ -28,7 +28,7 @@ const BottomNavBar = () => {
         <span className="text-xs">Profile</span>
       </Link>
       <Link
-        to="/home"
+        to="/"
         className={`${
           activeLink === "Home"
             ? "bg-gray-300 text-black dark:bg-gray-500 dark:text-gray-100 rounded-full scale-105 shadow-lg"

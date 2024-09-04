@@ -49,7 +49,7 @@ const Trust = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 py-24">
+    <div className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 py-24 hidden md:block">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-32">
           {/* Text Content on the Left */}

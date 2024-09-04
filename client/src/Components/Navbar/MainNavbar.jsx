@@ -43,7 +43,7 @@ const MainNavbar = ({
         {/* Right Side */}
         <div className="space-x-4 text-sm hidden lg:flex items-center">
           <Link
-            to="/home"
+            to="/"
             onClick={() => handleLinkClick("Home")}
             className={`flex items-center space-x-2 px-4 py-2 rounded-md ${
               activeLink === "Home"

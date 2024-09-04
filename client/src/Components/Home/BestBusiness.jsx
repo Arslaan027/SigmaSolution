@@ -152,28 +152,28 @@ const BestBusiness = () => {
               </tr>
               <tr>
                 <td className="py-3 px-6 border-b bg-gray-100 font-semibold"></td>
-                <td className="py-3 px-6 border-b text-center">
-                  <button className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
+                <td className="py-2 px-6 border-b">
+                  <button className="bg-red-500 text-white px-3 py-2 text-xs md:px-4 md:py-2 md:text-sm rounded-lg shadow-md hover:bg-red-600 whitespace-nowrap">
                     Learn More
                   </button>
                 </td>
-                <td className="py-3 px-6 border-b text-center">
-                  <button className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
+                <td className="py-2 px-6 border-b">
+                  <button className="bg-red-500 text-white px-3 py-2 text-xs md:px-4 md:py-2 md:text-sm rounded-lg shadow-md hover:bg-red-600 whitespace-nowrap">
                     Learn More
                   </button>
                 </td>
-                <td className="py-3 px-6 border-b text-center">
-                  <button className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
+                <td className="py-3 px-6 border-b">
+                  <button className="bg-red-500 text-white px-3 py-2 text-xs md:px-4 md:py-2 md:text-sm rounded-lg shadow-md hover:bg-red-600 whitespace-nowrap">
                     Learn More
                   </button>
                 </td>
-                <td className="py-3 px-6 border-b text-center">
-                  <button className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
+                <td className="py-2 px-6 border-b">
+                  <button className="bg-red-500 text-white px-3 py-2 text-xs md:px-4 md:py-2 md:text-sm rounded-lg shadow-md hover:bg-red-600 whitespace-nowrap">
                     Learn More
                   </button>
                 </td>
-                <td className="py-3 px-6 border-b text-center">
-                  <button className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600">
+                <td className="py-2 px-6 border-b">
+                  <button className="bg-red-500 text-white px-3 py-2 text-xs md:px-4 md:py-2 md:text-sm rounded-lg shadow-md hover:bg-red-600 whitespace-nowrap">
                     Learn More
                   </button>
                 </td>

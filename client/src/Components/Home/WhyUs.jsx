@@ -3,10 +3,8 @@ import { motion } from "framer-motion";
 
 // Define variants for card animations
 const cardVariants = {
-  hiddenLeft: { opacity: 0, x: -50 },
-  visibleLeft: { opacity: 1, x: 0 },
-  hiddenRight: { opacity: 0, x: 50 },
-  visibleRight: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, y: 50 }, // Cards start below and fade in
+  visible: { opacity: 1, y: 0 }, // Cards move to their original position and fade in
 };
 
 const textVariants = {
@@ -25,21 +23,16 @@ const containerVariants = {
 };
 
 const FeatureCard = ({ icon, title, description, bgColor, index }) => {
-  const isEven = index % 2 === 0;
-  const variants = isEven
-    ? { hidden: cardVariants.hiddenLeft, visible: cardVariants.visibleLeft }
-    : { hidden: cardVariants.hiddenRight, visible: cardVariants.visibleRight };
-
   return (
     <motion.div
       className={`flex flex-col items-center justify-center p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 ${bgColor}`}
-      variants={variants}
+      variants={cardVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       transition={{
         opacity: { duration: 0.6, ease: "easeOut" }, // Smooth opacity transition
-        x: { duration: 0.6, ease: "easeOut" }, // Smooth horizontal transition
+        y: { duration: 0.6, ease: "easeOut" }, // Smooth vertical transition
       }}
     >
       <div className="text-5xl mb-4 text-gray-800">{icon}</div>
