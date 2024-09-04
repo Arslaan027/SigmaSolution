@@ -13,6 +13,8 @@ const Navbar = () => {
   );
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [isFixed, setIsFixed] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState("up"); // Added state for scroll direction
+  const [prevScrollY, setPrevScrollY] = useState(0); // To track previous scroll position
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
@@ -21,7 +23,17 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsFixed(window.scrollY > 100);
+      const currentScrollY = window.scrollY;
+
+      // Determine scroll direction
+      if (currentScrollY > prevScrollY) {
+        setScrollDirection("up");
+      } else {
+        setScrollDirection("down");
+      }
+
+      setPrevScrollY(currentScrollY);
+      setIsFixed(currentScrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,7 +41,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [prevScrollY]);
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
@@ -66,6 +78,7 @@ const Navbar = () => {
         handleLinkClick={handleLinkClick}
         handleDropdownToggle={handleDropdownToggle}
         dropdownOpen={dropdownOpen}
+        isVisible={scrollDirection === "up" || !isFixed} // Show when scrolling up or not fixed
       />
 
       {/* Sidebar for Mobile */}
