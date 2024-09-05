@@ -107,7 +107,7 @@ const Navbar = () => {
             "Interior Design",
             "Furniture",
             "Decor Items",
-            "Horeca Services",
+            { name: "Horeca Services", path: "/horeca" },
             "Packaging & Printing",
             "Digital Marketing",
             "Prod Setup",

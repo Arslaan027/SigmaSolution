@@ -26,7 +26,7 @@ const BottomNavbar = ({
             "Accounting",
             "Interior Design",
             "Furniture",
-            "Decor Items",
+            { name: "Decor Items", path: "/horeca" },
             "Horeca Services",
             "Packaging & Printing",
             "Digital Marketing",
