@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import MainNavbar from "./MainNavbar";
-import BottomNavbar from "./BottomNav"; // Ensure this import matches the actual file name
+import BottomNavbar from "./BottomNav";
 import { Link } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
 import BottomBar from "./BottomBar";
+import Navbar1 from "./Nav";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -13,8 +14,9 @@ const Navbar = () => {
   );
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [isFixed, setIsFixed] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState("up"); // Added state for scroll direction
-  const [prevScrollY, setPrevScrollY] = useState(0); // To track previous scroll position
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
@@ -25,7 +27,6 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Determine scroll direction
       if (currentScrollY > prevScrollY) {
         setScrollDirection("up");
       } else {
@@ -59,6 +60,28 @@ const Navbar = () => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
 
+  // Filter links based on the search query
+  const filteredLinks = [
+    { name: "Home", path: "/" },
+    { name: "Biz Registrations", path: "/biz" },
+    "Accounting",
+    "Interior Design",
+    "Furniture",
+    "Decor Items",
+    { name: "Horeca Services", path: "/horeca" },
+    "Packaging & Printing",
+    "Digital Marketing",
+    "Prod Setup",
+    "Storage & Handling",
+    "IT & Security",
+    "Biz Deals",
+    "Architecture",
+  ].filter((link) =>
+    typeof link === "string"
+      ? link.toLowerCase().includes(searchQuery.toLowerCase())
+      : link.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div>
       <MainNavbar
@@ -71,17 +94,17 @@ const Navbar = () => {
         dropdownOpen={dropdownOpen}
       />
 
-      {/* Bottom Navbar */}
       <BottomNavbar
         isFixed={isFixed}
         activeLink={activeLink}
         handleLinkClick={handleLinkClick}
         handleDropdownToggle={handleDropdownToggle}
         dropdownOpen={dropdownOpen}
-        isVisible={scrollDirection === "up" || !isFixed} // Show when scrolling up or not fixed
+        isVisible={scrollDirection === "up" || !isFixed}
       />
 
-      {/* Sidebar for Mobile */}
+      <Navbar1 />
+
       <div
         className={`fixed inset-y-0 left-0 bg-white text-black dark:bg-gray-900 dark:text-gray-100 p-6 transform z-50 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -92,6 +115,8 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)} // Update search query
             className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-black dark:text-gray-200 focus:outline-none"
           />
           <button className="absolute h-10 right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white">
@@ -100,24 +125,9 @@ const Navbar = () => {
         </div>
         {/* Sidebar Links */}
         <div className="mt-4 flex flex-col space-y-4">
-          {[
-            { name: "Home", path: "/" },
-            { name: "Biz Registrations", path: "/biz" },
-            "Accounting",
-            "Interior Design",
-            "Furniture",
-            "Decor Items",
-            { name: "Horeca Services", path: "/horeca" },
-            "Packaging & Printing",
-            "Digital Marketing",
-            "Prod Setup",
-            "Storage & Handling",
-            "IT & Security",
-            "Biz Deals",
-            "Architecture",
-          ].map((link, index) => (
+          {filteredLinks.map((link, index) => (
             <div key={link.name || link} className="relative">
-              {link.path ? (
+              {typeof link === "object" ? (
                 <Link
                   to={link.path}
                   className={`${
